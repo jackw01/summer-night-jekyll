@@ -1,7 +1,7 @@
 @import "normalize";
 @import "syntax";
 @import "variables";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Barlow:100,200,300,400|Fira+Code:400,700|Roboto:300,300i,400,400i,500,500i,700,700i');
 
 @mixin large {
   @media screen and (min-width: #{$large-breakpoint}) {
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6, .modal-title {
 }
 
 code, pre {
-    font: 15px "Fira Mono", sans-serif;
+    font: 16px "Fira Code", monospace;
 }
 
 h1 {
@@ -80,6 +80,14 @@ strong {
 
 .small {
   font-size: 0.8em;
+}
+
+::-moz-selection {
+  background-color: transparentize($accent-color, 0.7);
+}
+
+::selection {
+  background-color: transparentize($accent-color, 0.7);
 }
 
 body {
@@ -152,7 +160,7 @@ a {
 .page-header {
   color: $heading-color;
   text-align: center;
-  background-color: $header-bg-color;
+  background-color: darken($body-background-color, 3%);
 
   h1 {
     background-image: linear-gradient(135deg, #0080d2 0%,#00ab9a 100%);
@@ -162,11 +170,11 @@ a {
   }
 
   @include large {
-    padding: 5rem 6rem;
+    padding: 2rem 6rem;
   }
 
   @include medium {
-    padding: 3rem 4rem;
+    padding: 2rem 4rem;
   }
 
   @include small {
@@ -179,11 +187,11 @@ a {
   margin-bottom: 0.1rem;
 
   @include large {
-    font-size: 3.25rem;
+    font-size: 5rem;
   }
 
   @include medium {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 
   @include small {
@@ -209,6 +217,46 @@ a {
   }
 }
 
+ul.nav {
+  margin-top: 2rem;
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  @include large {
+    li:not(:last-child) {
+      border-right: 1px solid $border-color;
+    }
+  }
+
+  @include medium {
+    li:not(:last-child) {
+      border-right: 1px solid $border-color;
+    }
+  }
+
+  @include small {
+    li {
+      display: block;
+      padding-top: 0.5rem;
+    }
+    li:not(:last-child) {
+      padding-bottom: 0.5rem;
+      border-bottom: 0;
+    }
+  }
+
+  a {
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
 .main-content {
   word-wrap: break-word;
 
@@ -220,17 +268,14 @@ a {
     max-width: 64rem;
     padding: 2rem 6rem;
     margin: 0 auto;
-    font-size: 1.1rem;
   }
 
   @include medium {
     padding: 2rem 4rem;
-    font-size: 1.1rem;
   }
 
   @include small {
     padding: 2rem 1rem;
-    font-size: 1rem;
   }
 
   img {
@@ -255,6 +300,7 @@ a {
   code {
     padding: 2px 4px;
     color: $code-text-color;
+    background-color: $code-bg-color;
     border-radius: 5px;
   }
 
@@ -265,7 +311,6 @@ a {
     color: $code-text-color;
     word-wrap: normal;
     background-color: $code-bg-color;
-    border-radius: 5px;
 
     > code {
       padding: 0;
@@ -275,6 +320,7 @@ a {
       white-space: pre;
       background: transparent;
       border: 0;
+      font-size: 13px;
     }
   }
 
@@ -291,9 +337,8 @@ a {
   pre {
     padding: 0.8rem;
     overflow: auto;
-    font-size: 0.9rem;
-    line-height: 1.45;
-    border-radius: 0.3rem;
+    line-height: 1.2;
+    border-radius: 5px;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -399,7 +444,7 @@ a {
 .site-footer-owner {
   display: block;
 
-  a {
+  a:last-child {
     color: $accent-color-secondary;
   }
 }

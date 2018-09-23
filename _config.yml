@@ -3,3 +3,13 @@ description: Summer Night theme for Jekyll
 show_downloads: true
 google_analytics:
 theme: summer-night-jekyll
+nav_items:
+  - 1:
+    url: ./another-page.html
+    text: another page 1
+  - 2:
+    url: ./another-page.html
+    text: another page 2
+  - 3:
+    url: ./another-page.html
+    text: another page 3
