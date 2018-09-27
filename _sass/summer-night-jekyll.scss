@@ -37,7 +37,7 @@ body {
     letter-spacing: 0.25px;
 }
 
-h1, h2, h3, h4, h5, h6, .modal-title {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Barlow", sans-serif;
 }
 
@@ -133,7 +133,6 @@ a {
   border-image: linear-gradient(135deg, #fa5f8b 0%,#d3ab58 100%);
   border-image-slice: 1;
   color: $body-text-color;
-  border-radius: 5px;
 
   &:hover {
     text-decoration: none;
