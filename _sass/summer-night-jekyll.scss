@@ -1,7 +1,7 @@
 @import "normalize";
 @import "syntax";
 @import "variables";
-@import url('https://fonts.googleapis.com/css?family=Barlow:100,200,300,400|Fira+Code:400,700|Roboto:300,300i,400,400i,500,500i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Barlow:100,200,300,400|Fira+Mono:400,700|Roboto:300,300i,400,400i,500,500i,700,700i');
 
 @mixin large {
   @media screen and (min-width: #{$large-breakpoint}) {
@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code, pre {
-    font-family: "Fira Code", monospace;
+    font-family: "Input Mono Narrow", "Fira Code", "Fira Mono", monospace;
 }
 
 h1 {
