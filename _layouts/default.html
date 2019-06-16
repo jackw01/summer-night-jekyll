@@ -16,6 +16,13 @@
     <meta name="theme-color" content="#1f2124">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% if site.hide_first_h1 %}
+      <style>
+        #content > h1:first-child {
+          display: none;
+        }
+      </style>
+    {% endif %}
   </head>
   <body>
     <header class="page-header" role="banner">
