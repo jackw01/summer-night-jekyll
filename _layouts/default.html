@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% if site.hide_first_h1 %}
     <style>
-      #content > h1:first-child {
+      #md-content > h1:first-child {
         display: none;
       }
-      #content > *:nth-child(2) {
+      #md-content > *:nth-child(2) {
         margin-top: 0;
       }
     </style>
@@ -47,7 +47,7 @@
         {% endfor %}
       </ul>
       {% endif %}
-      {% if site.github.is_project_page and site.hide_github_button == false %}
+      {% if site.github.is_project_page %}
       <a href="{{ site.github.repository_url }}" class="button">View on GitHub</a>
       {% endif %}
       {% if site.npm_url %}
@@ -62,7 +62,7 @@
       <a href="{{ link.url }}" class="button">{{ link.text }}</a>
       {% endfor %}
       {% endif %}
-      <div style="margin-top: 2.5rem">
+      <div style="margin-top: 2.5rem" id="md-content">
         {{ content }}
       </div>
       <footer class="site-footer">
