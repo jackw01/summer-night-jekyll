@@ -3,6 +3,8 @@ description: Summer Night theme for Jekyll
 show_downloads: true
 google_analytics:
 theme: summer-night-jekyll
+github:
+  owner_name: jackw01
 nav_items:
   - 1:
     url: ./another-page.html
@@ -13,3 +15,10 @@ nav_items:
   - 3:
     url: ./another-page.html
     text: another page 3
+custom_buttons:
+  - 1:
+    url: ./test.png
+    text: png 1
+  - 2:
+    url: ./test.jpg
+    text: jpg 1

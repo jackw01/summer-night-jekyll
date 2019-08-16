@@ -22,10 +22,10 @@
 }
 
 @mixin transition {
-  -webkit-transition: all 220ms ease 80ms;
-  -moz-transition: all 220ms ease 80ms;
-  -o-transition: all 220ms ease 80ms;
-  transition: all 220ms ease 80ms;
+  -webkit-transition: all 200ms ease 50ms;
+  -moz-transition: all 200ms ease 50ms;
+  -o-transition: all 200ms ease 50ms;
+  transition: all 200ms ease 50ms;
 }
 
 * {
@@ -85,7 +85,7 @@ strong {
   font-weight: 700;
 }
 
-.small {
+small, .small {
   font-size: 0.8em;
 }
 
@@ -95,6 +95,15 @@ strong {
 
 ::selection {
   background-color: transparentize($accent-color, 0.7);
+}
+
+img {
+  border-radius: 3px;
+}
+
+video {
+  width: 100% !important;
+  height: auto !important;
 }
 
 body {
@@ -116,6 +125,10 @@ a {
   }
 }
 
+a.secondary {
+  color: $accent-color-secondary;
+}
+
 .button {
   @include transition();
   -moz-user-select: none;
@@ -132,12 +145,17 @@ a {
   border-style: solid;
   border-image: linear-gradient(135deg, #fa5f8b 0%,#d3ab58 100%);
   border-image-slice: 1;
-  color: $body-text-color;
+  background-image: linear-gradient(135deg, $body-text-color 0%, $body-text-color 50%, #fa5f8b 50%, #d3ab58 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-position: 0px 0px;
+  background-size: 250%;
 
   &:hover {
     text-decoration: none;
-    background: darken($body-background-color, 1%);
-    color: $highlight-text-color;
+    color: transparent;
+    background-position: -70% 0px;
   }
 
   + .button {
@@ -185,6 +203,97 @@ a {
   }
 }
 
+.page-header-bg {
+  color: $heading-color;
+  background-color: darken($body-background-color, 3%);
+}
+
+.page-nav-header {
+  background-color: darken($body-background-color, 3%);
+  box-shadow: 0 1px 8px darken($body-background-color, 3%);
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+
+  nav {
+    text-align: right;
+
+    .site-logo a {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      margin-left: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+      padding: 4px 0 0;
+      color: darken($accent-color-secondary, 25%);
+      text-shadow:
+        0px 0px 15px $accent-color-secondary,
+        -1px -1px 0px $accent-color-secondary,
+        1px -1px 0px $accent-color-secondary,
+        -1px 1px 0px $accent-color-secondary,
+        1px 1px 0px $accent-color-secondary;
+      font: 2.2rem "Roboto", sans-serif;
+      font-style: italic;
+      font-weight: 700;
+      border: none;
+      background: none;
+
+      &:hover {
+        border: none;
+      }
+    }
+
+    a {
+      background-image: linear-gradient(90deg, $body-text-color 0%, $body-text-color 50%, #00a3d2 50%, #00ab9a 100%);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      border-bottom: 1px solid transparent;
+      background-position: 0px 0px;
+      background-size: 200%;
+    }
+
+    a:hover {
+      text-decoration: none;
+      border-bottom: 1px solid $accent-color;
+      background-position: -100% 0px;
+    }
+  }
+}
+
+.header-stylized-text {
+  display: inline-block;
+  margin-bottom: 0 !important;
+  background-image: linear-gradient(90deg, #00a3d2 0%, #00ab9a 100%);
+  color: transparent !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+nav {
+  list-style-type: none;
+  padding: 0;
+
+  a {
+    display: inline-block;
+    margin: 0;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  a:last-child {
+    margin-right: 2rem;
+  }
+}
+
+
+
+
+
+
+
 .project-name {
   margin-top: 0;
   margin-bottom: 0.1rem;
@@ -202,26 +311,9 @@ a {
   }
 }
 
-.project-tagline {
-  margin-bottom: 2rem;
-  font-weight: normal;
-  opacity: 0.7;
-
-  @include large {
-    font-size: 1.25rem;
-  }
-
-  @include medium {
-    font-size: 1.15rem;
-  }
-
-  @include small {
-    font-size: 1rem;
-  }
-}
-
 ul.nav {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   list-style-type: none;
   padding: 0;
 
@@ -229,6 +321,14 @@ ul.nav {
     display: inline-block;
     margin: 0;
     padding: 0 1rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 
   @include large {
@@ -260,6 +360,13 @@ ul.nav {
   }
 }
 
+
+
+
+
+
+
+
 .main-content {
   word-wrap: break-word;
 
@@ -268,17 +375,17 @@ ul.nav {
   }
 
   @include large {
-    max-width: 64rem;
-    padding: 2rem 6rem;
+    max-width: 50rem; // Was 64
+    padding: 1rem 3rem;
     margin: 0 auto;
   }
 
   @include medium {
-    padding: 2rem 4rem;
+    padding: 1rem 3rem;
   }
 
   @include small {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
   }
 
   img {
@@ -427,21 +534,10 @@ ul.nav {
 }
 
 .site-footer {
-  padding-top: 2rem;
+  padding: 1.6rem 0;
   margin-top: 2rem;
   border-top: solid 1px $border-color;
-
-  @include large {
-    font-size: 1rem;
-  }
-
-  @include medium {
-    font-size: 1rem;
-  }
-
-  @include small {
-    font-size: 0.9rem;
-  }
+  font-size: 0.85rem;
 }
 
 .site-footer-owner {
@@ -449,5 +545,37 @@ ul.nav {
 
   a:last-child {
     color: $accent-color-secondary;
+  }
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.content-wrapper-thin {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.project-tagline {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  opacity: 0.7;
+
+  @include large {
+    font-size: 1.25rem;
+  }
+
+  @include medium {
+    font-size: 1.15rem;
+  }
+
+  @include small {
+    font-size: 1rem;
   }
 }
