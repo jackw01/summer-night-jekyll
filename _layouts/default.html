@@ -28,12 +28,11 @@
     {% endif %}
   </head>
   <body>
-    {% if site.github.owner_name == "jackw01" %}
+    {% if site.github.owner_name == "jackw01" %} <!-- bad hack but it works -->
     <header class="page-nav-header">
       <nav>
         <span class="float-left site-logo"><a href="{{ site.url }}">J</a></span>
         <a href="{{ site.url }}">Home</a>
-        <a href="{{ site.url }}/pages/about">About</a>
       </nav>
     </header>
     {% endif %}
@@ -66,8 +65,8 @@
         {{ content }}
       </div>
       <footer class="site-footer">
-        © {{ "now" | date: "%Y" }} <a class="secondary" href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>. 
-        {% if site.github.owner_name != "jackw01" %} 
+        © {{ "now" | date: "%Y" }} <a class="secondary" href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.
+        {% if site.github.owner_name != "jackw01" %}
         <br/>
         <a href="https://github.com/jackw01/summer-night-jekyll">Summer Night Jekyll Theme</a> by <a class="secondary" href="https://github.com/jackw01">jackw01</a>.
         {% endif %}
