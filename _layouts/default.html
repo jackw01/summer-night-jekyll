@@ -22,21 +22,13 @@
         display: none;
       }
       #md-content > *:nth-child(2) {
-        margin-top: 0;
+        margin-top: 2;
       }
     </style>
     {% endif %}
   </head>
   <body>
-    {% if site.github.owner_name == "jackw01" %} <!-- bad hack but it works -->
-    <header class="page-nav-header">
-      <nav>
-        <span class="float-left site-logo"><a href="{{ site.url }}">J</a></span>
-        <a href="{{ site.url }}">Home</a>
-      </nav>
-    </header>
-    {% endif %}
-    <main id="content" class="main-content" role="main">
+    <main id="content" class="main-content content-wrapper-thin" role="main">
       <h1 class="header-stylized-text">{{ site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
       {% if site.nav_items %}
@@ -61,7 +53,7 @@
       <a href="{{ link.url }}" class="button">{{ link.text }}</a>
       {% endfor %}
       {% endif %}
-      <div style="margin-top: 2.5rem" id="md-content">
+      <div id="md-content">
         {{ content }}
       </div>
       <footer class="site-footer">
@@ -70,6 +62,7 @@
         <br/>
         <a href="https://github.com/jackw01/summer-night-jekyll">Summer Night Jekyll Theme</a> by <a class="secondary" href="https://github.com/jackw01">jackw01</a>.
         {% endif %}
+        <br/>
       </footer>
     </main>
   </body>
